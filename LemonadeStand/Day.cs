@@ -9,7 +9,7 @@ namespace LemonadeStand
     public class Day
     {
         public int Temperature { get; set; }
-        public bool isItRaining;
+        public bool rain;
         public const int totalDays = 7;
 
         public Day()

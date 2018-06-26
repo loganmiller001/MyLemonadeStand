@@ -20,11 +20,34 @@ namespace LemonadeStand
         
         public override void  SetTemperature()
         {
+            base.SetTemperature();
+
             Random temperature = new Random();
             int randomTemperature = temperature.Next(minTemp, maxTemp);
             
         }
-        
+
+        public override void DeterminePrecipitation()
+        {
+            base.DeterminePrecipitation();
+
+            Random rain = new Random();
+            int randomRain = rain.Next(0, 5);
+
+            if(randomRain >= 2)
+            {
+                Console.WriteLine("It is raining!");
+            }
+            else if (randomRain <=4)
+            {
+                Console.WriteLine("It is not raining.");
+            }
+            else
+            {
+                Console.WriteLine("There is a slight overcast.");
+            }
+        }
+
 
 
     }
