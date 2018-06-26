@@ -8,5 +8,14 @@ namespace LemonadeStand
 {
     class Player
     {
+        public int lemonCount;
+        public int cupCount;
+        public int iceCount;
+        public int sugarCount;
+
+        public Player()
+        {
+
+        }
     }
 }

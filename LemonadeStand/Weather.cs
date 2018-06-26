@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Weather : Day
+     class Weather : Day
     {
+        private int weatherType;
         private const int maxTemp = 100;
         private const int minTemp = 50;
 
@@ -22,9 +23,29 @@ namespace LemonadeStand
         {
             base.SetTemperature();
 
+            
             Random temperature = new Random();
             int randomTemperature = temperature.Next(minTemp, maxTemp);
-            
+            if (randomTemperature <= 74)
+            {
+                weatherType = 1;
+                Console.WriteLine("Weather is cool and breezy.");
+            }
+            else if (randomTemperature == 75)
+            {
+                weatherType = 2;
+                Console.WriteLine("Weather is warm.");
+            }
+            else if (randomTemperature <=89)
+            {
+                weatherType = 3;
+                Console.WriteLine("It is hot outside!");
+            }
+            else
+            {
+                weatherType = 4;
+                Console.WriteLine("The weather is scalding!");
+            }
         }
 
         public override void DeterminePrecipitation()
@@ -38,7 +59,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("It is raining!");
             }
-            else if (randomRain <=4)
+            else if (randomRain <= 4)
             {
                 Console.WriteLine("It is not raining.");
             }

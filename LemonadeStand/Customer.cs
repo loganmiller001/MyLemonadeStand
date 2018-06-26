@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Customer
+    class Customer : Day
     {
+        
+
+       
+
+        public Customer()
+        {
+            
+
+        }
+
+
+       
+        
+         
+
     }
 }
