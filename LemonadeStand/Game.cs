@@ -14,7 +14,7 @@ namespace LemonadeStand
         public void RunGame()
         {
             StartMenu();
-            OpeningScroll(player);
+            FirstDay(player);
 
         }
 
@@ -26,7 +26,7 @@ namespace LemonadeStand
             Console.ReadLine();
 
         }
-        public void OpeningScroll(Player player)
+        public void FirstDay(Player player)
         {
             player.DisplayInventory();
             player.SetStartingMoney();

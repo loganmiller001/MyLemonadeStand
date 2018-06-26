@@ -35,5 +35,10 @@ namespace LemonadeStand
         {
             Console.WriteLine("You currently have: Lemons: " + currentLemons + "Sugar: " + currentSugar + "Ice: " + currentIce + "Cups: " + currentCups);
         }
+
+        public virtual void SetStartingMoney()
+        {
+
+        }
     }
 }

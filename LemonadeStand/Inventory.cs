@@ -24,7 +24,6 @@ namespace LemonadeStand
         public override void DisplayInventory()
         {
             base.DisplayInventory();
-
             inventoryCount = (LemonCount + SugarCount + IceCount + CupCount);
         }
 
@@ -33,7 +32,7 @@ namespace LemonadeStand
             base.SetStartingMoney();
 
             startMoney = 20.00;
-            Console.WriteLine("You Have : " +startMoney);
+            Console.WriteLine("You Have : $" +startMoney);
         }
     }
 }
