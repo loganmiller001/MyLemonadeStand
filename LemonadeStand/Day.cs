@@ -26,5 +26,15 @@ namespace LemonadeStand
         {
 
         }
+
+        public virtual void CustomersApproaching()
+        {
+
+        }
+
+        public virtual void RainAffectOnApproach()
+        {
+
+        }
     }
 }

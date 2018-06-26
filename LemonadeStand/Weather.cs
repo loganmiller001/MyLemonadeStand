@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
      class Weather : Day
     {
-        private int weatherType;
+        public int weatherType;
         private const int maxTemp = 100;
         private const int minTemp = 50;
 
