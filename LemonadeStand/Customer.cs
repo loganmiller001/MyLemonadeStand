@@ -29,25 +29,25 @@ namespace LemonadeStand
             {
                 totalCustomers = 150;
                 Random customers = new Random();
-                int randomCustomers = customers.Next(10, 150);
+                int randomCustomers = customers.Next(30, 150);
             }
             else if (weatherType == 2)
             {
                 totalCustomers = 250;
                 Random customers = new Random();
-                int randomCustomers = customers.Next(20, 200);
+                int randomCustomers = customers.Next(50, 200);
             }
             else if (weatherType == 3)
             {
                 totalCustomers = 350;
                 Random customers = new Random();
-                int randomCustomers = customers.Next(35, 350);
+                int randomCustomers = customers.Next(75, 350);
             }
             else
             {
                 totalCustomers = 500;
                 Random customers = new Random();
-                int randomCustomers = customers.Next(50, 500);
+                int randomCustomers = customers.Next(100, 500);
             }
             
             

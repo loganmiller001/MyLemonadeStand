@@ -8,9 +8,13 @@ namespace LemonadeStand
 {
     class Game
     {
+
+        private Player player;
+
         public void RunGame()
         {
             StartMenu();
+            OpeningScroll(player);
 
         }
 
@@ -20,6 +24,19 @@ namespace LemonadeStand
             Console.WriteLine("You will be able to purchase supplies such as lemons, sugar, ice, and cups before you start a new day and be able to set the price and amount of each you put into a single pitcher of lemonade.");
             Console.WriteLine("Use these to attempt to turn a profit and try and make as much money in one week as possilbe!");
             Console.ReadLine();
+
+        }
+        public void OpeningScroll(Player player)
+        {
+            player.DisplayInventory();
+            player.SetStartingMoney();
+            Console.ReadLine();
+            Console.WriteLine("You will start off with no supplies and $20.00. Use this to purcharse your items for your first day.");
+
+
+
+            Console.WriteLine("You may also set your own recipe to try and earn a higher profit.");
+            player.SetRecipe();
         }
     }
 }

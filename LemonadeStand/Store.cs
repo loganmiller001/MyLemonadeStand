@@ -8,5 +8,12 @@ namespace LemonadeStand
 {
     class Store
     {
+
+        public Store()
+        {
+
+        }
+
+
     }
 }
