@@ -6,7 +6,25 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Day
+    public class Day
     {
+        public int Temperature { get; set; }
+        public bool isItRaining;
+        public const int totalDays = 7;
+
+        public Day()
+        {
+           
+        }
+
+        public virtual void SetTemperature()
+        {
+
+        }
+
+        public virtual void DeterminePrecipitation()
+        {
+
+        }
     }
 }
