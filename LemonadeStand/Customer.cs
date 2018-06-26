@@ -13,6 +13,7 @@ namespace LemonadeStand
         private int randomRain;
         private int lostCustomersDueToRain;
         private int randomCustomers;
+        private int payingCustomers;
 
         public Customer()
         {
@@ -52,31 +53,55 @@ namespace LemonadeStand
             
         }
 
-        public override void RainAffectOnApproach()
+        public override void RainAffectOnBuyers()
         {
-            base.RainAffectOnApproach();
+            base.RainAffectOnBuyers();
 
             if(randomRain >= 2)
             {
                 lostCustomersDueToRain = 35;
-                randomCustomers -= lostCustomersDueToRain;
+                payingCustomers -= lostCustomersDueToRain;
             }
             else if(randomRain == 3)
             {
                 lostCustomersDueToRain = 15;
-                randomCustomers -= lostCustomersDueToRain;
+                payingCustomers -= lostCustomersDueToRain;
             }
             else
             {
                 lostCustomersDueToRain = 0;
             }
         }
-        
-        
-        
-       
-        
-         
+
+        public override void CustomersBuyLemonade()
+        {
+            base.CustomersBuyLemonade();
+
+            if (randomCustomers == 150)
+            {
+                Random randomCustomers = new Random();
+                int payingCustomers = randomCustomers.Next(0, 150);
+            }
+            else if (randomCustomers == 250)
+            {
+                Random randomCustomers = new Random();
+                int payingCustomers = randomCustomers.Next(0, 250);
+            }
+            else if (randomCustomers == 350)
+            {
+                Random randomCustomers = new Random();
+                int payingCustomers = randomCustomers.Next(0, 350);
+            }
+            else
+            {
+                Random randomCustomers = new Random();
+                int payingCustomers = randomCustomers.Next(0, 500);
+            }
+        }
+
+
+
+
 
     }
 }

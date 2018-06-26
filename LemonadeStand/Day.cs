@@ -32,7 +32,12 @@ namespace LemonadeStand
 
         }
 
-        public virtual void RainAffectOnApproach()
+        public virtual void RainAffectOnBuyers()
+        {
+
+        }
+
+        public virtual void CustomersBuyLemonade()
         {
 
         }
