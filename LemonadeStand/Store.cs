@@ -8,6 +8,7 @@ namespace LemonadeStand
 {
     public class Store
     {
+
         public string buyLemons;
         public string buyIce;
         public string buySugar;
@@ -18,6 +19,7 @@ namespace LemonadeStand
         public int getCups;
         public double price;
         public double moneySpent;
+        
 
 
 
@@ -28,7 +30,7 @@ namespace LemonadeStand
 
 
 
-        public void BuyLemons()
+        public void BuyLemons(Inventory inventory)
         {
             Console.WriteLine("Would you like to buy lemons?");
             string userInput = Console.ReadLine().ToLower();
@@ -44,14 +46,14 @@ namespace LemonadeStand
                     break;
                 default:
                     Console.WriteLine("Wrong input, please type 'yes' or 'no'. ");
-                    BuyLemons();
+                    BuyLemons(inventory);
                     break;
             }
 
 
         }
 
-        public void BuySugar()
+        public void BuySugar(Inventory inventory)
         {
             Console.WriteLine("Would you like to buy sugar?");
             string userInput = Console.ReadLine().ToLower();
@@ -67,14 +69,14 @@ namespace LemonadeStand
                     break;
                 default:
                     Console.WriteLine("Wrong user input, please type 'yes' or 'no'.");
-                    BuySugar();
+                    BuySugar(inventory);
                     break;
             }
 
 
         }
 
-        public void BuyIce()
+        public void BuyIce(Inventory inventory)
         {
             Console.WriteLine("Would you like to buy ice?");
             string userInput = Console.ReadLine().ToLower();
@@ -90,11 +92,12 @@ namespace LemonadeStand
                     break;
                 default:
                     Console.WriteLine("Wrong input, please type 'yes' or 'no'.");
+                    BuyIce(inventory);
                     break;
             }
         }
 
-        public void BuyCups()
+        public void BuyCups(Inventory inventory)
         {
             Console.WriteLine("Would you like to buy cups?");
             string userInput = Console.ReadLine().ToLower();
@@ -111,6 +114,7 @@ namespace LemonadeStand
                     break;
                 default:
                     Console.WriteLine("Wrong input, please type 'yes' or 'no'.");
+                    BuyCups(inventory);
                     break;
             }
 

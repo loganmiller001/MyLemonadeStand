@@ -34,21 +34,21 @@ namespace LemonadeStand
             inventory = new Inventory();
             player = new Player();
             store = new Store();
-            NewPlayerInfo(player);
-            NewPlayerInventory(inventory);
-            BuyItems(store);
+            PlayerInfo(player);
+            PlayerInventory(inventory);
+            BuyItems(store, inventory);
             Console.Clear();
         }
 
-        public void BuyItems(Store store)
+        public void BuyItems(Store store, Inventory inventory)
         {
-            store.BuyLemons();
-            store.BuySugar();
-            store.BuyIce();
-            store.BuyCups();
+            store.BuyLemons(inventory);
+            store.BuySugar(inventory);
+            store.BuyIce(inventory);
+            store.BuyCups(inventory);
         }
 
-        public void NewPlayerInfo(Player player)
+        public void PlayerInfo(Player player)
         {
 
             Console.ReadLine();
@@ -58,7 +58,7 @@ namespace LemonadeStand
 
         }
 
-        public void NewPlayerInventory(Inventory inventory)
+        public void PlayerInventory(Inventory inventory)
         {
             inventory.ShowMoney();
             inventory.DisplayInventory();

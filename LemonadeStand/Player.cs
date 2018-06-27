@@ -25,7 +25,8 @@ namespace LemonadeStand
 
         public void SetRecipe()
         {
-            
+            Console.WriteLine("Enter how many of each ingredients you wish to add to make your lemonade.");
+            string userInput = Console.ReadLine().ToLower();
 
         }
 

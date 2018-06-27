@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Inventory
+    public class Inventory
     {
         public int lemons;
         public int sugar;
         public int ice;
         public int cups;
         public double cash = 20.00;
-        public bool enoughInventory;
+        public double currentCash;
 
 
 
@@ -33,10 +33,21 @@ namespace LemonadeStand
 
         public void ShowMoney()
         {
-
+           
             Console.WriteLine($"You have ${cash}. ");
         }
 
+        public double AddMoney()
+        {
+            double currentCash = cash + ;
+            return currentCash;
+        }
+
+        public double RemoveMoney()
+        {
+            double currentCash = cash - ;
+            return currentCash;
+        }
 
     }
 }
