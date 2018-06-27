@@ -9,48 +9,104 @@ namespace LemonadeStand
     class Store
     {
 
-        public int lemons;
-        public int ice;
-        public int sugar;
-        public int cups;
-        public int lemonsCost;
-        public int iceCost;
-        public int sugarCost;
-        public int cupsCost;
+        public int getLemons;
+        public int getIce;
+        public int getSugar;
+        public int getCups;
+        public double price;
+        public double moneySpent;
+
+
 
         public Store()
         {
 
         }
 
-        public void ShopMenu()
+
+
+        public void BuyLemons()
         {
-            Console.WriteLine("Which supplies would you like to buy? Please write 'lemons', 'sugar', 'ice', or 'cups'. Write 'no' to leave the Shop. ");
-            string userInput = Console.ReadLine();
-            userInput.ToLower();
+            Console.WriteLine("Would you like to buy lemons?");
+            string userInput = Console.ReadLine().ToLower();
             switch (userInput)
             {
-                case "lemons":
-                    Console.WriteLine("How many lemons do you wish to buy?");
-                    break;
-                case "sugar":
-                    Console.WriteLine("How much sugar do you wish to buy?");
-                    break;
-                case "ice":
-                    Console.WriteLine("Hou much ice would you like to buy?");
-                    break;
-                case "cups":
-                    Console.WriteLine("How many cups would you like to buy?");
+                case "yes":
+                    Console.WriteLine("How many lemons would you like to buy?");
+                    int getLemons = Int32.Parse("");
+                    Console.WriteLine($"You have bought: {getLemons} lemons.");
                     break;
                 case "no":
-                    Console.WriteLine("Leaving shop now.");
                     break;
                 default:
-                    Console.WriteLine("Incorrect input, please choose again.");
-                    ShopMenu();
+                    Console.WriteLine("Wrong input, please type 'yes' or 'no'. ");
+                    BuyLemons();
+                    break;
+            }
+
+
+        }
+
+        public void BuySugar()
+        {
+            Console.WriteLine("Would you like to buy sugar?");
+            string userInput = Console.ReadLine().ToLower();
+            switch (userInput)
+            {
+                case "yes":
+                    Console.WriteLine("How much sugar do you wish to buy?");
+                    int getSugar = Int32.Parse("");
+                    Console.WriteLine($"You have bought: {getSugar} sugar.");
+                    break;
+                case "no":
+                    break;
+                default:
+                    Console.WriteLine("Wrong user input, please type 'yes' or 'no'.");
+                    BuySugar();
+                    break;
+            }
+
+
+        }
+
+        public void BuyIce()
+        {
+            Console.WriteLine("Would you like to buy ice?");
+            string userInput = Console.ReadLine().ToLower();
+            switch (userInput)
+            {
+                case "yes":
+                    Console.WriteLine("How much ice would you like to buy?");
+                    int getIce = Int32.Parse("");
+                    Console.WriteLine($"You have bought {getIce} ice.");
+                    break;
+                case "no":
+                    break;
+                default:
+                    Console.WriteLine("Wrong input, please type 'yes' or 'no'.");
                     break;
             }
         }
 
+        public void BuyCups()
+        {
+            Console.WriteLine("Would you like to buy cups?");
+            string userInput = Console.ReadLine().ToLower();
+            switch (userInput)
+            {
+
+                case "yes":
+                    Console.WriteLine("How many cups would you like to buy?");
+                    int getCups = Int32.Parse("");
+                    Console.WriteLine($"You have bought {this.getCups} cups.");
+                    break;
+                case "no":
+                    break;
+                default:
+                    Console.WriteLine("Wrong input, please type 'yes' or 'no'.");
+                    break;
+            }
+
+        }
     }
 }

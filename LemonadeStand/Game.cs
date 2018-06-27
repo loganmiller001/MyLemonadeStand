@@ -28,8 +28,8 @@ namespace LemonadeStand
         }
         public void FirstDay(Player player)
         {
-            player.DisplayInventory();
             player.SetStartingMoney();
+            player.DisplayInventory();
             Console.ReadLine();
             Console.WriteLine("You will start off with no supplies and $20.00. Use this to purcharse your items for your first day.");
             

@@ -12,7 +12,7 @@ namespace LemonadeStand
         private double startMoney;
         private double currentMoney;
 
-        private Inventory(int lemons, int sugar, int ice, int cups)
+         Inventory(int lemons, int sugar, int ice, int cups)
         {
             this.LemonCount = lemons;
             this.SugarCount = sugar;
@@ -25,6 +25,7 @@ namespace LemonadeStand
         {
             base.DisplayInventory();
             inventoryCount = (LemonCount + SugarCount + IceCount + CupCount);
+            
         }
 
         public override void SetStartingMoney()
@@ -34,5 +35,7 @@ namespace LemonadeStand
             startMoney = 20.00;
             Console.WriteLine("You Have : $" +startMoney);
         }
+
+
     }
 }

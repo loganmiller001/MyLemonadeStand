@@ -9,14 +9,15 @@ namespace LemonadeStand
     class Player
     {
         public int LemonCount { get; set; }
-        public int CupCount { get; set; }
         public int IceCount { get; set; }
         public int SugarCount { get; set; }
+        public int CupCount { get; set; }
         public int currentLemons;
         public int currentSugar;
         public int currentIce;
         public int currentCups;
         public int recipe;
+        public double wallet;
 
         public Player()
         {
@@ -38,7 +39,7 @@ namespace LemonadeStand
 
         public virtual void SetStartingMoney()
         {
-
+            
         }
     }
 }
