@@ -10,11 +10,13 @@ namespace LemonadeStand
     {
 
         private Player player;
+        private Store store;
 
         public void RunGame()
         {
             StartMenu();
-            FirstDay(player);
+            GamePlay(player);
+            BuyItems(store);
 
         }
 
@@ -26,17 +28,24 @@ namespace LemonadeStand
             Console.ReadLine();
 
         }
-        public void FirstDay(Player player)
+        public void GamePlay(Player player)
         {
             player.SetStartingMoney();
             player.DisplayInventory();
             Console.ReadLine();
-            Console.WriteLine("You will start off with no supplies and $20.00. Use this to purcharse your items for your first day.");
-            
-
-
-            Console.WriteLine("You may also set your own recipe to try and earn a higher profit.");
+            Console.Clear();
+            BuyItems(store);
+            Console.Clear();
+            Console.WriteLine("Make changes to your recipe.");
             player.SetRecipe();
+        }
+
+        public void BuyItems(Store store)
+        {
+            store.BuyLemons();
+            store.BuySugar();
+            store.BuyIce();
+            store.BuyCups();
         }
     }
 }
