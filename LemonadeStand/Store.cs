@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Store
+    public class Store
     {
-
+        public string buyLemons;
+        public string buyIce;
+        public string buySugar;
+        public string buyCups;
         public int getLemons;
         public int getIce;
         public int getSugar;
@@ -33,7 +36,8 @@ namespace LemonadeStand
             {
                 case "yes":
                     Console.WriteLine("How many lemons would you like to buy?");
-                    int getLemons = Int32.Parse("");
+                    string buyLemons = Console.ReadLine();
+                    int getLemons = Int32.Parse($"{buyLemons}");
                     Console.WriteLine($"You have bought: {getLemons} lemons.");
                     break;
                 case "no":
@@ -55,7 +59,8 @@ namespace LemonadeStand
             {
                 case "yes":
                     Console.WriteLine("How much sugar do you wish to buy?");
-                    int getSugar = Int32.Parse("");
+                    string buySugar = Console.ReadLine();
+                    int getSugar = Int32.Parse($"{buySugar}");
                     Console.WriteLine($"You have bought: {getSugar} sugar.");
                     break;
                 case "no":
@@ -77,7 +82,8 @@ namespace LemonadeStand
             {
                 case "yes":
                     Console.WriteLine("How much ice would you like to buy?");
-                    int getIce = Int32.Parse("");
+                    string buyIce = Console.ReadLine();
+                    int getIce = Int32.Parse($"{buyIce}");
                     Console.WriteLine($"You have bought {getIce} ice.");
                     break;
                 case "no":
@@ -97,8 +103,9 @@ namespace LemonadeStand
 
                 case "yes":
                     Console.WriteLine("How many cups would you like to buy?");
-                    int getCups = Int32.Parse("");
-                    Console.WriteLine($"You have bought {this.getCups} cups.");
+                    string buyCups = Console.ReadLine();
+                    int getCups = Int32.Parse($"{buyCups}");
+                    Console.WriteLine($"You have bought {getCups} cups.");
                     break;
                 case "no":
                     break;

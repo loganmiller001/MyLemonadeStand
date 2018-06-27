@@ -6,34 +6,35 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Inventory:Player
+    class Inventory
     {
-        private int inventoryCount;
-        private double startMoney;
-        private double currentMoney;
+        public int lemons;
+        public int sugar;
+        public int ice;
+        public int cups;
+        public double cash = 20.00;
+        public bool enoughInventory;
 
-         Inventory(int lemons, int sugar, int ice, int cups)
+
+
+         public Inventory()
         {
-            this.LemonCount = lemons;
-            this.SugarCount = sugar;
-            this.IceCount = ice;
-            this.CupCount = cups;
+
         }
 
 
-        public override void DisplayInventory()
+        public void DisplayInventory()
         {
-            base.DisplayInventory();
-            inventoryCount = (LemonCount + SugarCount + IceCount + CupCount);
-            
+
+            Console.WriteLine($"Inventory: {lemons} lemons, {sugar} sugar, {ice} ice, {cups} cups.");
+           
+
         }
 
-        public override void SetStartingMoney()
+        public void ShowMoney()
         {
-            base.SetStartingMoney();
 
-            startMoney = 20.00;
-            Console.WriteLine("You Have : $" +startMoney);
+            Console.WriteLine($"You have ${cash}. ");
         }
 
 

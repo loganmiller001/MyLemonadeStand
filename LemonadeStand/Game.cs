@@ -8,15 +8,15 @@ namespace LemonadeStand
 {
     class Game
     {
-
-        private Player player;
-        private Store store;
+        public Inventory inventory;
+        public Player player;
+        public Store store;
 
         public void RunGame()
         {
             StartMenu();
-            GamePlay(player);
-            BuyItems(store);
+            GamePlay();
+           
 
         }
 
@@ -26,18 +26,18 @@ namespace LemonadeStand
             Console.WriteLine("You will be able to purchase supplies such as lemons, sugar, ice, and cups before you start a new day and be able to set the price and amount of each you put into a single pitcher of lemonade.");
             Console.WriteLine("Use these to attempt to turn a profit and try and make as much money in one week as possilbe!");
             Console.ReadLine();
+            
 
         }
-        public void GamePlay(Player player)
+        public void GamePlay()
         {
-            player.SetStartingMoney();
-            player.DisplayInventory();
-            Console.ReadLine();
-            Console.Clear();
+            inventory = new Inventory();
+            player = new Player();
+            store = new Store();
+            NewPlayerInfo(player);
+            NewPlayerInventory(inventory);
             BuyItems(store);
             Console.Clear();
-            Console.WriteLine("Make changes to your recipe.");
-            player.SetRecipe();
         }
 
         public void BuyItems(Store store)
@@ -46,6 +46,24 @@ namespace LemonadeStand
             store.BuySugar();
             store.BuyIce();
             store.BuyCups();
+        }
+
+        public void NewPlayerInfo(Player player)
+        {
+
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Make changes to your recipe.");
+            player.SetRecipe();
+
+        }
+
+        public void NewPlayerInventory(Inventory inventory)
+        {
+            inventory.ShowMoney();
+            inventory.DisplayInventory();
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }

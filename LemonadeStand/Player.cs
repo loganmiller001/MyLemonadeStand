@@ -8,38 +8,27 @@ namespace LemonadeStand
 {
     class Player
     {
-        public int LemonCount { get; set; }
-        public int IceCount { get; set; }
-        public int SugarCount { get; set; }
-        public int CupCount { get; set; }
-        public int currentLemons;
-        public int currentSugar;
-        public int currentIce;
-        public int currentCups;
-        public int recipe;
-        public double wallet;
+        public string playerName;
 
         public Player()
         {
-           
+            playerName = GetUserInfo();
             
+        }
+
+        public string GetUserInfo()
+        {
+            Console.WriteLine("What is your Name?");
+            playerName = Console.ReadLine();
+            return playerName;
         }
 
         public void SetRecipe()
         {
-            recipe = (LemonCount) + (SugarCount) + (IceCount);
-            Console.WriteLine("Please enter the amount of lemons, sugar and ice you want to use per cup.");
-
-        }
-
-        public virtual void DisplayInventory()
-        {
-            Console.WriteLine("You currently have: Lemons: " + currentLemons + "Sugar: " + currentSugar + "Ice: " + currentIce + "Cups: " + currentCups);
-        }
-
-        public virtual void SetStartingMoney()
-        {
             
+
         }
+
+
     }
 }
