@@ -32,7 +32,7 @@ namespace LemonadeStand
             player.SetStartingMoney();
             Console.ReadLine();
             Console.WriteLine("You will start off with no supplies and $20.00. Use this to purcharse your items for your first day.");
-
+            
 
 
             Console.WriteLine("You may also set your own recipe to try and earn a higher profit.");

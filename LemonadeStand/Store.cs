@@ -25,22 +25,25 @@ namespace LemonadeStand
 
         public void ShopMenu()
         {
-            Console.WriteLine("Which supplies would you like to buy? Please write 'lemons', 'sugar', 'ice', or 'cups' ");
+            Console.WriteLine("Which supplies would you like to buy? Please write 'lemons', 'sugar', 'ice', or 'cups'. Write 'no' to leave the Shop. ");
             string userInput = Console.ReadLine();
             userInput.ToLower();
             switch (userInput)
             {
                 case "lemons":
-                    Console.WriteLine("");
+                    Console.WriteLine("How many lemons do you wish to buy?");
                     break;
                 case "sugar":
-
+                    Console.WriteLine("How much sugar do you wish to buy?");
                     break;
                 case "ice":
-
+                    Console.WriteLine("Hou much ice would you like to buy?");
                     break;
                 case "cups":
-
+                    Console.WriteLine("How many cups would you like to buy?");
+                    break;
+                case "no":
+                    Console.WriteLine("Leaving shop now.");
                     break;
                 default:
                     Console.WriteLine("Incorrect input, please choose again.");
