@@ -34,9 +34,6 @@ namespace LemonadeStand
         }
         public void GamePlay()
         {
-            weather = new Weather();
-            customer = new Customer();
-            day = new Day();
             inventory = new Inventory();
             player = new Player();
             store = new Store();
@@ -77,10 +74,10 @@ namespace LemonadeStand
         }
         public void PreRound(Weather weather, Player player)
         {
-            weather.SetTemperature();
-            weather.DeterminePrecipitation();
+           // weather.SetTemperature();
+           // weather.DeterminePrecipitation();
             
-            player.SetRecipe(inventory);
+           // player.SetRecipe(inventory);
         }
     }
 }

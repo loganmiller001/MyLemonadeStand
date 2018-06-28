@@ -8,64 +8,31 @@ namespace LemonadeStand
 {
      public class Weather
     {
-        public int Temperature { get; set; }
-        public int weatherType;
-        private const int maxTemp = 100;
-        private const int minTemp = 50;
+        
+        public int condition;
 
-        public Weather()
+        public Weather(Random random)
         {
-
+            SetCondition(random);
         }
         
-        
-        public void  SetTemperature()
+        public void SetCondition(Random random)
         {
+            Random randomWeather = new Random();
+            condition = randomWeather.Next(0, 10);
 
-            
-            Random temperature = new Random();
-            int randomTemperature = temperature.Next(minTemp, maxTemp);
-            if (randomTemperature <= 74)
+            if (condition <= 5)
             {
-                weatherType = 1;
-                Console.WriteLine("Weather is cool and breezy.");
-            }
-            else if (randomTemperature == 75)
-            {
-                weatherType = 2;
-                Console.WriteLine("Weather is warm.");
-            }
-            else if (randomTemperature <=89)
-            {
-                weatherType = 3;
-                Console.WriteLine("It is hot outside!");
+                Console.WriteLine("It is Sunny and Clear outside.");
+                
             }
             else
             {
-                weatherType = 4;
-                Console.WriteLine("The weather is scalding!");
+                Console.WriteLine("There is rain.");
             }
+
         }
 
-        public void DeterminePrecipitation()
-        {
-
-            Random rain = new Random();
-            int randomRain = rain.Next(0, 5);
-
-            if(randomRain >= 2)
-            {
-                Console.WriteLine("It is raining!");
-            }
-            else if (randomRain <= 4)
-            {
-                Console.WriteLine("It is not raining.");
-            }
-            else
-            {
-                Console.WriteLine("There is a slight overcast.");
-            }
-        }
 
 
 

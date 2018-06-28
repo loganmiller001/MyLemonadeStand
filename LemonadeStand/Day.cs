@@ -8,14 +8,39 @@ namespace LemonadeStand
 {
     public class Day
     {
+        List<Customer> customers;
+        Weather weather;
+        Recipe recipe;
         public int Temperature { get; set; }
         public const int totalDays = 7;
 
-        public Day()
+        public Day(Random rnd)
         {
+            customers = new List<Customer>();
+            weather = new Weather(rnd);
+            recipe = new Recipe();
+            GenerateCustomers(rnd);
+
 
         }
 
+        public void GenerateCustomers(Random rnd)
+        {
+            int min = 150;
+            int max = 300;
+
+            if(weather.condition <= 5)
+            {
+                min += 10;
+                max += 25;
+            }
+            else
+            {
+                min -= 20;
+                max -= 40;
+            }
+            int numberOfCustomers = rnd.Next(min, max);
+        }
     }
 
 }
