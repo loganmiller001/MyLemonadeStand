@@ -60,7 +60,7 @@ namespace LemonadeStand
 
         public void PlayerInventory(Inventory inventory)
         {
-            inventory.ShowMoney();
+            inventory.SetMoney();
             inventory.DisplayInventory();
             Console.ReadLine();
             Console.Clear();

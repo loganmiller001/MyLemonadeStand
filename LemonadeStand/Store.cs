@@ -9,16 +9,17 @@ namespace LemonadeStand
     public class Store
     {
 
-        public string buyLemons;
-        public string buyIce;
-        public string buySugar;
-        public string buyCups;
+        public double buyLemons;
+        public double buyIce;
+        public double buySugar;
+        public double buyCups;
         public int getLemons;
         public int getIce;
         public int getSugar;
         public int getCups;
         public double price;
         public double moneySpent;
+        Inventory inventory;
         
 
 
@@ -34,13 +35,17 @@ namespace LemonadeStand
         {
             Console.WriteLine("Would you like to buy lemons?");
             string userInput = Console.ReadLine().ToLower();
+            double price = .63;
             switch (userInput)
             {
                 case "yes":
-                    Console.WriteLine("How many lemons would you like to buy?");
-                    string buyLemons = Console.ReadLine();
-                    int getLemons = Int32.Parse($"{buyLemons}");
-                    Console.WriteLine($"You have bought: {getLemons} lemons.");
+                    Console.WriteLine($"Lemons cost: {price} How many lemons would you like to buy?");
+                    double buyLemons = Convert.ToDouble(Console.ReadLine());
+                    double moneyToRemove = buyLemons * price;
+                    Console.WriteLine($"You have bought {buyLemons} lemons for ${moneyToRemove}");
+                    Console.ReadLine();
+                    inventory.RemoveMoney(moneyToRemove, inventory );
+                    inventory.lemons = Convert.ToInt32(inventory.lemons + buyLemons );
                     break;
                 case "no":
                     break;
@@ -57,13 +62,17 @@ namespace LemonadeStand
         {
             Console.WriteLine("Would you like to buy sugar?");
             string userInput = Console.ReadLine().ToLower();
+            double price = .55;
             switch (userInput)
             {
                 case "yes":
-                    Console.WriteLine("How much sugar do you wish to buy?");
-                    string buySugar = Console.ReadLine();
-                    int getSugar = Int32.Parse($"{buySugar}");
-                    Console.WriteLine($"You have bought: {getSugar} sugar.");
+                    Console.WriteLine($"Sugar costs: ${price}. How much sugar do you wish to buy?");
+                    double buySugar = Convert.ToDouble(Console.ReadLine());
+                    double moneyToRemove = buySugar * price;
+                    Console.WriteLine($"You have bought: {getSugar} sugar for ${moneyToRemove}. ");
+                    Console.ReadLine();
+                    inventory.RemoveMoney(moneyToRemove, inventory);
+                    inventory.sugar = Convert.ToInt32(inventory.sugar + buySugar);
                     break;
                 case "no":
                     break;
@@ -80,12 +89,16 @@ namespace LemonadeStand
         {
             Console.WriteLine("Would you like to buy ice?");
             string userInput = Console.ReadLine().ToLower();
+            double price = .33;
             switch (userInput)
             {
                 case "yes":
-                    Console.WriteLine("How much ice would you like to buy?");
-                    string buyIce = Console.ReadLine();
-                    int getIce = Int32.Parse($"{buyIce}");
+                    Console.WriteLine($"Ice costs ${price}. How much ice would you like to buy?");
+                    double buyIce = Convert.ToDouble(Console.ReadLine());
+                    double moneyToRemove = buyIce * price;
+                    Console.WriteLine($"You have bought {buyIce} ice for ${moneyToRemove}");
+                    Console.ReadLine();
+                    inventory.ice = Convert.ToInt32(inventory.ice + buyIce );
                     Console.WriteLine($"You have bought {getIce} ice.");
                     break;
                 case "no":
@@ -101,14 +114,18 @@ namespace LemonadeStand
         {
             Console.WriteLine("Would you like to buy cups?");
             string userInput = Console.ReadLine().ToLower();
+            double price = .22;
             switch (userInput)
             {
 
                 case "yes":
-                    Console.WriteLine("How many cups would you like to buy?");
-                    string buyCups = Console.ReadLine();
-                    int getCups = Int32.Parse($"{buyCups}");
-                    Console.WriteLine($"You have bought {getCups} cups.");
+                    Console.WriteLine($"Cups cost {price}. How many cups would you like to buy?");
+                    double buyCups = Convert.ToDouble(Console.ReadLine());
+                    double moneyToRemove = buyCups * price;
+                    Console.WriteLine($"You have bought {getCups} cups for ${moneyToRemove}.");
+                    Console.ReadLine();
+                    inventory.RemoveMoney(moneyToRemove, inventory);
+                    inventory.cups = Convert.ToInt32(inventory.cups + buyCups);
                     break;
                 case "no":
                     break;

@@ -14,7 +14,8 @@ namespace LemonadeStand
         public int cups;
         public double cash = 20.00;
         public double currentCash;
-
+        public double moneyToAdd;
+        public double moneyToRemove;
 
 
          public Inventory()
@@ -31,23 +32,27 @@ namespace LemonadeStand
 
         }
 
-        public void ShowMoney()
+        public void SetMoney()
         {
            
             Console.WriteLine($"You have ${cash}. ");
         }
 
-        public double AddMoney()
+        public double AddMoney(double moneyToAdd, Inventory inventory)
         {
-            double currentCash = cash + ;
+            double currentCash = cash + moneyToAdd;
             return currentCash;
         }
 
-        public double RemoveMoney()
+        public double RemoveMoney(double moneyToRemove, Inventory inventory)
         {
-            double currentCash = cash - ;
+            double currentCash = cash - moneyToRemove;
             return currentCash;
         }
-
+        
+        public void CheckCash()
+        {
+            Console.WriteLine($"Your current cash is: {currentCash}");
+        }
     }
 }
