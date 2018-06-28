@@ -37,6 +37,7 @@ namespace LemonadeStand
             PlayerInfo(player);
             PlayerInventory(inventory);
             BuyItems(store, inventory);
+            inventory.CheckCash(inventory);
             Console.Clear();
         }
 
@@ -46,21 +47,23 @@ namespace LemonadeStand
             store.BuySugar(inventory);
             store.BuyIce(inventory);
             store.BuyCups(inventory);
+            inventory.DisplayInventory();
         }
 
         public void PlayerInfo(Player player)
         {
 
+            inventory.SetMoney();
             Console.ReadLine();
             Console.Clear();
             Console.WriteLine("Make changes to your recipe.");
-            player.SetRecipe();
+        //    player.SetRecipe();
 
         }
 
         public void PlayerInventory(Inventory inventory)
         {
-            inventory.SetMoney();
+            inventory.CheckCash(inventory);
             inventory.DisplayInventory();
             Console.ReadLine();
             Console.Clear();

@@ -13,10 +13,6 @@ namespace LemonadeStand
         public double buyIce;
         public double buySugar;
         public double buyCups;
-        public int getLemons;
-        public int getIce;
-        public int getSugar;
-        public int getCups;
         public double price;
         public double moneySpent;
         Inventory inventory;
@@ -69,7 +65,7 @@ namespace LemonadeStand
                     Console.WriteLine($"Sugar costs: ${price}. How much sugar do you wish to buy?");
                     double buySugar = Convert.ToDouble(Console.ReadLine());
                     double moneyToRemove = buySugar * price;
-                    Console.WriteLine($"You have bought: {getSugar} sugar for ${moneyToRemove}. ");
+                    Console.WriteLine($"You have bought: {buySugar} sugar for ${moneyToRemove}. ");
                     Console.ReadLine();
                     inventory.RemoveMoney(moneyToRemove, inventory);
                     inventory.sugar = Convert.ToInt32(inventory.sugar + buySugar);
@@ -98,8 +94,8 @@ namespace LemonadeStand
                     double moneyToRemove = buyIce * price;
                     Console.WriteLine($"You have bought {buyIce} ice for ${moneyToRemove}");
                     Console.ReadLine();
-                    inventory.ice = Convert.ToInt32(inventory.ice + buyIce );
-                    Console.WriteLine($"You have bought {getIce} ice.");
+                    inventory.RemoveMoney(moneyToRemove, inventory);
+                    inventory.ice = Convert.ToInt32(inventory.ice + buyIce);
                     break;
                 case "no":
                     break;
@@ -122,7 +118,7 @@ namespace LemonadeStand
                     Console.WriteLine($"Cups cost {price}. How many cups would you like to buy?");
                     double buyCups = Convert.ToDouble(Console.ReadLine());
                     double moneyToRemove = buyCups * price;
-                    Console.WriteLine($"You have bought {getCups} cups for ${moneyToRemove}.");
+                    Console.WriteLine($"You have bought {buyCups} cups for ${moneyToRemove}.");
                     Console.ReadLine();
                     inventory.RemoveMoney(moneyToRemove, inventory);
                     inventory.cups = Convert.ToInt32(inventory.cups + buyCups);

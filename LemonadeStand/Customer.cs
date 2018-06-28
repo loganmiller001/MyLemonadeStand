@@ -35,7 +35,7 @@ namespace LemonadeStand
             {
                 totalCustomers = 250;
                 Random customers = new Random();
-                int randomCustomers = customers.Next(50, 200);
+                int randomCustomers = customers.Next(50, 250);
             }
             else if (weatherType == 3)
             {
