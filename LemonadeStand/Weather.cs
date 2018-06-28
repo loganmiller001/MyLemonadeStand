@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-     class Weather : Day
+     public class Weather
     {
+        public int Temperature { get; set; }
         public int weatherType;
         private const int maxTemp = 100;
         private const int minTemp = 50;
 
-        private Weather(int Temperature)
+        public Weather()
         {
-            this.Temperature = Temperature;
 
         }
         
         
-        public override void  SetTemperature()
+        public void  SetTemperature()
         {
-            base.SetTemperature();
 
             
             Random temperature = new Random();
@@ -48,9 +47,8 @@ namespace LemonadeStand
             }
         }
 
-        public override void DeterminePrecipitation()
+        public void DeterminePrecipitation()
         {
-            base.DeterminePrecipitation();
 
             Random rain = new Random();
             int randomRain = rain.Next(0, 5);

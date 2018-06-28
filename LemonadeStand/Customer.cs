@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Customer : Day
+    public class Customer
     {
-        private int totalCustomers = 500;
-        private int weatherType;
-        private int randomRain;
-        private int lostCustomersDueToRain;
-        private int randomCustomers;
-        private int payingCustomers;
+        public int totalCustomers = 500;
+        public int weatherType;
+        public int randomRain;
+        public int lostCustomersDueToRain;
+        public int randomCustomers;
+        public int payingCustomers;
 
         public Customer()
         {
@@ -21,41 +21,39 @@ namespace LemonadeStand
 
         }
 
-        public override void CustomersApproaching()
+        public void CustomersApproaching()
         {
-            base.CustomersApproaching();
 
             if (weatherType == 1)
             {
                 totalCustomers = 150;
                 Random customers = new Random();
-                int randomCustomers = customers.Next(30, 150);
+                randomCustomers = customers.Next(30, 150);
             }
             else if (weatherType == 2)
             {
                 totalCustomers = 250;
                 Random customers = new Random();
-                int randomCustomers = customers.Next(50, 250);
+                randomCustomers = customers.Next(50, 250);
             }
             else if (weatherType == 3)
             {
                 totalCustomers = 350;
                 Random customers = new Random();
-                int randomCustomers = customers.Next(75, 350);
+                randomCustomers = customers.Next(75, 350);
             }
             else
             {
                 totalCustomers = 500;
                 Random customers = new Random();
-                int randomCustomers = customers.Next(100, 500);
+                randomCustomers = customers.Next(100, 500);
             }
             
             
         }
 
-        public override void RainAffectOnBuyers()
+        public void RainAffectOnBuyers()
         {
-            base.RainAffectOnBuyers();
 
             if(randomRain >= 2)
             {
@@ -73,29 +71,28 @@ namespace LemonadeStand
             }
         }
 
-        public override void CustomersBuyLemonade()
+        public void CustomersBuyLemonade()
         {
-            base.CustomersBuyLemonade();
 
             if (randomCustomers == 150)
             {
                 Random randomCustomers = new Random();
-                int payingCustomers = randomCustomers.Next(0, 150);
+                payingCustomers = randomCustomers.Next(0, 150);
             }
             else if (randomCustomers == 250)
             {
                 Random randomCustomers = new Random();
-                int payingCustomers = randomCustomers.Next(0, 250);
+                payingCustomers = randomCustomers.Next(0, 250);
             }
             else if (randomCustomers == 350)
             {
                 Random randomCustomers = new Random();
-                int payingCustomers = randomCustomers.Next(0, 350);
+                payingCustomers = randomCustomers.Next(0, 350);
             }
             else
             {
                 Random randomCustomers = new Random();
-                int payingCustomers = randomCustomers.Next(0, 500);
+                payingCustomers = randomCustomers.Next(0, 500);
             }
         }
 

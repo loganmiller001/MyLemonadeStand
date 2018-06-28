@@ -23,9 +23,9 @@ namespace LemonadeStand
             return playerName;
         }
 
-        public void SetRecipe()
+        public void SetRecipe(Inventory inventory)
         {
-            Console.WriteLine("Enter how many of each ingredients you wish to add to make your lemonade.");
+            Console.WriteLine("Enter how many of each ingredients you wish to add to make your lemonade?");
             string userInput = Console.ReadLine().ToLower();
 
         }
