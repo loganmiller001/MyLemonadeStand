@@ -8,10 +8,9 @@ namespace LemonadeStand
 {
     public class Day
     {
-        List<Customer> customers;
-        Weather weather;
-        Recipe recipe;
-        public int Temperature { get; set; }
+        public List<Customer> customers;
+        public Weather weather;
+        public Recipe recipe;
         public const int totalDays = 7;
 
         public Day(Random rnd)
@@ -40,6 +39,11 @@ namespace LemonadeStand
                 max -= 40;
             }
             int numberOfCustomers = rnd.Next(min, max);
+
+            for (int i = 0; i < numberOfCustomers; i++)
+            {
+                customers.Add(new Customer(rnd));
+            }
         }
     }
 

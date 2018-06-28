@@ -8,8 +8,7 @@ namespace LemonadeStand
 {
     class Game
     {
-        public Weather weather;
-        public Customer customer;
+        public Random random;
         public Day day;
         public Inventory inventory;
         public Player player;
@@ -34,15 +33,21 @@ namespace LemonadeStand
         }
         public void GamePlay()
         {
+            random = new Random();
             inventory = new Inventory();
             player = new Player();
             store = new Store();
+            DayMaker();
             PlayerInfo(player);
             PlayerInventory(inventory);
             BuyItems(store, inventory);
             Console.Clear();
         }
 
+        public void DayMaker()
+        {
+            day = new Day(random);
+        }
         public void BuyItems(Store store, Inventory inventory)
         {
             store.BuyLemons(inventory);
@@ -53,7 +58,7 @@ namespace LemonadeStand
             inventory.DisplayInventory();
             inventory.CheckCash(inventory);
             Console.Clear();
-            PreRound(weather, player);
+
         }
 
         public void PlayerInfo(Player player)
@@ -72,12 +77,6 @@ namespace LemonadeStand
             Console.ReadLine();
             Console.Clear();
         }
-        public void PreRound(Weather weather, Player player)
-        {
-           // weather.SetTemperature();
-           // weather.DeterminePrecipitation();
-            
-           // player.SetRecipe(inventory);
-        }
+
     }
 }

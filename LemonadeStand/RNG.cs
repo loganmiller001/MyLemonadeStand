@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class RNG
+    public class RNG
     {
-        Random random;
+       public Random random;
 
         public RNG (Random random)
         {

@@ -15,7 +15,7 @@ namespace LemonadeStand
         public double buyCups;
         public double price;
         public double moneySpent;
-        Inventory inventory;
+        public Inventory inventory;
         
 
 
@@ -31,7 +31,7 @@ namespace LemonadeStand
         {
             Console.WriteLine("Would you like to buy lemons?");
             string userInput = Console.ReadLine().ToLower();
-            double price = .63;
+            double price = .25;
             switch (userInput)
             {
                 case "yes":
@@ -58,7 +58,7 @@ namespace LemonadeStand
         {
             Console.WriteLine("Would you like to buy sugar?");
             string userInput = Console.ReadLine().ToLower();
-            double price = .55;
+            double price = .21;
             switch (userInput)
             {
                 case "yes":
@@ -85,7 +85,7 @@ namespace LemonadeStand
         {
             Console.WriteLine("Would you like to buy ice?");
             string userInput = Console.ReadLine().ToLower();
-            double price = .33;
+            double price = .20;
             switch (userInput)
             {
                 case "yes":
@@ -110,7 +110,7 @@ namespace LemonadeStand
         {
             Console.WriteLine("Would you like to buy cups?");
             string userInput = Console.ReadLine().ToLower();
-            double price = .22;
+            double price = .10;
             switch (userInput)
             {
 
