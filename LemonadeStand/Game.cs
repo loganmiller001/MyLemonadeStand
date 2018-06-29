@@ -13,6 +13,7 @@ namespace LemonadeStand
         public Inventory inventory;
         public Player player;
         public Store store;
+        public int AWeekLong;
 
         public void RunGame()
         {
@@ -31,22 +32,38 @@ namespace LemonadeStand
             
 
         }
+
+        public void WeatherDisplay()
+        {
+            int AWeekLong = 7;
+            Console.WriteLine("Your week long weather forcast: ");
+            for (AWeekLong = 0; AWeekLong < 7; AWeekLong++)
+            {
+                DayMaker();
+            }
+           
+        }
         public void GamePlay()
         {
             random = new Random();
             inventory = new Inventory();
             player = new Player();
             store = new Store();
-            DayMaker();
+           // DayMaker();
             PlayerInfo(player);
             PlayerInventory(inventory);
             BuyItems(store, inventory);
             Console.Clear();
+            Console.WriteLine("Ready, press enter to begin the day.");
+            Console.ReadLine();
+            day.GenerateCustomers(random);
         }
 
         public void DayMaker()
         {
             day = new Day(random);
+            
+            
         }
         public void BuyItems(Store store, Inventory inventory)
         {

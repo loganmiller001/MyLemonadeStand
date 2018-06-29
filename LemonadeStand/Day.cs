@@ -18,7 +18,7 @@ namespace LemonadeStand
             customers = new List<Customer>();
             weather = new Weather(rnd);
             recipe = new Recipe();
-            GenerateCustomers(rnd);
+            
 
 
         }
@@ -40,10 +40,11 @@ namespace LemonadeStand
             }
             int numberOfCustomers = rnd.Next(min, max);
 
-            for (int i = 0; i < numberOfCustomers; i++)
-            {
+           // for (int i = 0; i < numberOfCustomers; i++)
+         //   {
                 customers.Add(new Customer(rnd));
-            }
+                Console.WriteLine($"You have had {numberOfCustomers} customers buy lemonade!");
+          //  }
         }
     }
 

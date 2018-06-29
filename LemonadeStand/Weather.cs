@@ -10,20 +10,24 @@ namespace LemonadeStand
     {
         
         public int condition;
+        public int minTemp = 65;
+        public int maxTemp = 99;
+        public int temperature;
 
         public Weather(Random random)
         {
-            SetCondition(random);
+            SetRain(random);
+            SetTemp(random);
         }
         
-        public void SetCondition(Random random)
+        public void SetRain(Random random)
         {
             Random randomWeather = new Random();
             condition = randomWeather.Next(0, 10);
 
             if (condition <= 5)
             {
-                Console.WriteLine("It is Sunny and Clear outside.");
+                Console.WriteLine("It is Clear outside.");
                 
             }
             else
@@ -31,6 +35,21 @@ namespace LemonadeStand
                 Console.WriteLine("There is rain.");
             }
 
+        }
+
+        public void SetTemp(Random random)
+        {
+            Random randomTemperature = new Random();
+            temperature = randomTemperature.Next(65, 99);
+
+            if (temperature <= 80)
+            {
+                Console.WriteLine($"It is {temperature} and warm outside");
+            }
+            else
+            {
+                Console.WriteLine($"It is {temperature} and scalding outside!");
+            }
         }
 
 

@@ -14,7 +14,7 @@ namespace LemonadeStand
         public Customer(Random r)
         {
             percentChanceToBuy = r.Next(35, 65);
-            ChanceBasedOnWeather(weather);
+            
 
         }
 
@@ -22,7 +22,17 @@ namespace LemonadeStand
         {
             int min = 35;
             int max = 65;
-            if (weather.condition <= 5)
+            if (weather.condition <= 5 && weather.temperature >= 80)
+            {
+                min += 20;
+                max += 30;
+            }
+            else if (weather.condition <= 5 && weather.temperature <= 80)
+            {
+                min += 10;
+                max += 15;
+            }
+            else if (weather.condition >= 5 && weather.temperature >= 80) 
             {
                 min += 5;
                 max += 10;
@@ -32,6 +42,8 @@ namespace LemonadeStand
                 min -= 10;
                 max -= 20;
             }
+            
         }
+
     }
 }
