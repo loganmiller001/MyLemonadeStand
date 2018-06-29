@@ -25,8 +25,8 @@ namespace LemonadeStand
         public int GenerateCustomers(Random rnd, Weather weather)
         {
 
-            int min = 150;
-            int max = 300;
+            int min = 50;
+            int max = 125;
 
             if (weather.condition <= 5)
             {

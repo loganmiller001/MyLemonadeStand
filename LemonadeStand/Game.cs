@@ -60,6 +60,7 @@ namespace LemonadeStand
                 WeatherDisplay();
                 PlayerInventory(inventory);
                 BuyItems(store, inventory);
+                CreateRecipe(inventory);
                 day.SetPrice();
                 Console.Clear();
                 Console.WriteLine("Ready, press enter to begin the day.");
@@ -113,6 +114,14 @@ namespace LemonadeStand
             inventory.CalculateProfit(inventory.moneyToAdd);
             inventory.CalculateLoss(inventory.moneyToRemove);
             inventory.RunningProfit(inventory);
+        }
+        public void CreateRecipe(Inventory inventory)
+        {
+            inventory = new Inventory();
+            inventory.ChangeRecipe();
+            inventory.SetRecipe(inventory.lemons, inventory.sugar, inventory.ice);
+            inventory.RemoveItems(inventory.usedLemons, inventory.usedSugar, inventory.usedIce, inventory.usedCups);
+            inventory.DisplayInventory();
         }
     }
 }
