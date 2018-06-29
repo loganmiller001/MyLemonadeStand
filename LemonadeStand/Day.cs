@@ -16,7 +16,6 @@ namespace LemonadeStand
         public Day(Random rnd)
         {
             customers = new List<Customer>();
-            weather = new Weather(rnd);
             recipe = new Recipe();
             
 
@@ -44,7 +43,6 @@ namespace LemonadeStand
          //   {
                 customers.Add(new Customer(rnd));
                 Console.WriteLine($"You have had {numberOfCustomers} customers buy lemonade!");
-          //  }
         }
     }
 

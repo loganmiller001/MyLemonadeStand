@@ -13,43 +13,51 @@ namespace LemonadeStand
         public int minTemp = 65;
         public int maxTemp = 99;
         public int temperature;
+        public string conditions;
 
-        public Weather(Random random)
+        public Weather()
         {
-            SetRain(random);
-            SetTemp(random);
+
         }
         
-        public void SetRain(Random random)
+        public void SetRain(Random random, Weather weather)
         {
+            Weather getWeather = new Weather();
             Random randomWeather = new Random();
             condition = randomWeather.Next(0, 10);
+            string conditions = Console.ReadLine().ToString();
+            
 
             if (condition <= 5)
             {
                 Console.WriteLine("It is Clear outside.");
+                getWeather.conditions= Console.ReadLine().ToString();
                 
             }
             else
             {
                 Console.WriteLine("There is rain.");
+                getWeather.conditions = Console.ReadLine().ToString();
             }
+            
 
         }
 
         public void SetTemp(Random random)
         {
+            Weather getWeather = new Weather();
             Random randomTemperature = new Random();
-            temperature = randomTemperature.Next(65, 99);
+            getWeather.temperature = randomTemperature.Next(65, 99);
 
-            if (temperature <= 80)
+            if (getWeather.temperature <= 80)
             {
-                Console.WriteLine($"It is {temperature} and warm outside");
+                Console.WriteLine($"It is {getWeather.temperature} and warm outside");
             }
             else
             {
-                Console.WriteLine($"It is {temperature} and scalding outside!");
+                Console.WriteLine($"It is {getWeather.temperature} and scalding outside!");
             }
+            
         }
 
 

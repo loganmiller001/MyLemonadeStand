@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LemonadeStand
@@ -14,11 +15,11 @@ namespace LemonadeStand
         public Player player;
         public Store store;
         public int AWeekLong;
+        public Weather weather;
 
         public void RunGame()
         {
             StartMenu();
-            WeatherDisplay();
             GamePlay();
            
 
@@ -36,13 +37,13 @@ namespace LemonadeStand
 
         public void WeatherDisplay()
         {
-            int AWeekLong = 7;
-            Console.WriteLine("Your week long weather forcast: ");
-            for (AWeekLong = 0; AWeekLong < 7; AWeekLong++)
-            {
-                DayMaker();
-            }
-           
+            
+            Console.WriteLine("The weather today is: ");
+            
+           DayMaker(weather); Thread.Sleep(500);
+               
+            
+            Console.Clear();
         }
         public void GamePlay()
         {
@@ -50,20 +51,28 @@ namespace LemonadeStand
             inventory = new Inventory();
             player = new Player();
             store = new Store();
+            weather = new Weather();
+            int AWeekLong = 7;
+            for (AWeekLong = 0; AWeekLong < 7; AWeekLong++)
+            {
+                PlayerInfo(player);
+                WeatherDisplay();
+                PlayerInventory(inventory);
+                BuyItems(store, inventory);
+                Console.Clear();
+                Console.WriteLine("Ready, press enter to begin the day.");
+                Console.ReadLine();
+                day.GenerateCustomers(random);
+            } 
 
-            PlayerInfo(player);
-            PlayerInventory(inventory);
-            BuyItems(store, inventory);
-            Console.Clear();
-            Console.WriteLine("Ready, press enter to begin the day.");
-            Console.ReadLine();
-            day.GenerateCustomers(random);
         }
 
-        public void DayMaker()
+        public void DayMaker(Weather weather)
         {
-            day = new Day(random);
-            
+
+            Weather makeWeather = new Weather();
+            makeWeather.SetTemp(random);
+            makeWeather.SetRain(random, weather);
             
         }
         public void BuyItems(Store store, Inventory inventory)
