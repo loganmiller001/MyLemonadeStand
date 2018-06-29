@@ -47,6 +47,7 @@ namespace LemonadeStand
         }
         public void GamePlay()
         {
+            day = new Day(random);
             random = new Random();
             inventory = new Inventory();
             player = new Player();
@@ -59,10 +60,12 @@ namespace LemonadeStand
                 WeatherDisplay();
                 PlayerInventory(inventory);
                 BuyItems(store, inventory);
+                day.SetPrice();
                 Console.Clear();
                 Console.WriteLine("Ready, press enter to begin the day.");
                 Console.ReadLine();
-                day.GenerateCustomers(random);
+                day.GenerateCustomers(random, weather);
+                day.CalculateRevenue(inventory, day);
             } 
 
         }
@@ -90,7 +93,7 @@ namespace LemonadeStand
 
         public void PlayerInfo(Player player)
         {
-
+            player.GetUserInfo();
             inventory.SetMoney();
             Console.ReadLine();
             Console.Clear();

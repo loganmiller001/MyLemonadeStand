@@ -11,23 +11,24 @@ namespace LemonadeStand
         public List<Customer> customers;
         public Weather weather;
         public Recipe recipe;
-        public const int totalDays = 7;
+        public double price;
+        public int numberOfCustomers;
 
         public Day(Random rnd)
         {
             customers = new List<Customer>();
-            recipe = new Recipe();
-            
+
 
 
         }
 
-        public void GenerateCustomers(Random rnd)
+        public int GenerateCustomers(Random rnd, Weather weather)
         {
+
             int min = 150;
             int max = 300;
 
-            if(weather.condition <= 5)
+            if (weather.condition <= 5)
             {
                 min += 10;
                 max += 25;
@@ -37,15 +38,27 @@ namespace LemonadeStand
                 min -= 20;
                 max -= 40;
             }
-            int numberOfCustomers = rnd.Next(min, max);
+            numberOfCustomers = rnd.Next(min, max);
+            customers.Add(new Customer(rnd));
+            return numberOfCustomers;
 
-           // for (int i = 0; i < numberOfCustomers; i++)
-         //   {
-                customers.Add(new Customer(rnd));
-                Console.WriteLine($"You have had {numberOfCustomers} customers buy lemonade!");
+        }
+        public double SetPrice()
+        {
+            Console.WriteLine("Please type out the price you want to set your Lemonade.");
+            double userInput = Convert.ToDouble(Console.ReadLine());
+            price = userInput;
+            return price;
+
+        }
+        public void CalculateRevenue(Inventory inventory, Day day)
+        {
+            double moneyToAdd = price * numberOfCustomers;
+            Console.WriteLine($"You have had {numberOfCustomers} customers buy lemonade for ${moneyToAdd}");
+            inventory.AddMoney(moneyToAdd, inventory);
         }
     }
-
 }
+
 
        

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Player
+    public class Player
     {
         public string playerName;
+        public double userInput;
 
         public Player()
         {
-            playerName = GetUserInfo();
             
         }
 
@@ -22,7 +22,6 @@ namespace LemonadeStand
             playerName = Console.ReadLine();
             return playerName;
         }
-
 
 
     }
