@@ -18,6 +18,7 @@ namespace LemonadeStand
         public void RunGame()
         {
             StartMenu();
+            WeatherDisplay();
             GamePlay();
            
 
@@ -49,7 +50,7 @@ namespace LemonadeStand
             inventory = new Inventory();
             player = new Player();
             store = new Store();
-           // DayMaker();
+
             PlayerInfo(player);
             PlayerInventory(inventory);
             BuyItems(store, inventory);
