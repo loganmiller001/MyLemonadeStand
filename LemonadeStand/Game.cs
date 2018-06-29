@@ -27,11 +27,11 @@ namespace LemonadeStand
 
         public void StartMenu()
         {
+            
             Console.WriteLine("You will be running a lemonade stand for seven days, attempting to make as much revenue as possible.");
             Console.WriteLine("You will be able to purchase supplies such as lemons, sugar, ice, and cups before you start a new day and be able to set the price and amount of each you put into a single pitcher of lemonade.");
             Console.WriteLine("Use these to attempt to turn a profit and try and make as much money in one week as possilbe!");
             Console.ReadLine();
-            
 
         }
 
@@ -53,10 +53,10 @@ namespace LemonadeStand
             player = new Player();
             store = new Store();
             weather = new Weather();
+            PlayerInfo(player);
             int AWeekLong = 7;
             for (AWeekLong = 0; AWeekLong < 7; AWeekLong++)
             {
-                PlayerInfo(player);
                 WeatherDisplay();
                 PlayerInventory(inventory);
                 BuyItems(store, inventory);
@@ -66,6 +66,7 @@ namespace LemonadeStand
                 Console.ReadLine();
                 day.GenerateCustomers(random, weather);
                 day.CalculateRevenue(inventory, day);
+                GetProfit(inventory);
             } 
 
         }
@@ -107,6 +108,11 @@ namespace LemonadeStand
             Console.ReadLine();
             Console.Clear();
         }
-
+        public void GetProfit(Inventory inventory)
+        {
+            inventory.CalculateProfit(inventory.moneyToAdd);
+            inventory.CalculateLoss(inventory.moneyToRemove);
+            inventory.RunningProfit(inventory);
+        }
     }
 }

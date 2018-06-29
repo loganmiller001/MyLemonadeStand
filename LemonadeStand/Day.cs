@@ -56,6 +56,7 @@ namespace LemonadeStand
             double moneyToAdd = price * numberOfCustomers;
             Console.WriteLine($"You have had {numberOfCustomers} customers buy lemonade for ${moneyToAdd}");
             inventory.AddMoney(moneyToAdd, inventory);
+            inventory.CalculateProfit(moneyToAdd);
         }
     }
 }

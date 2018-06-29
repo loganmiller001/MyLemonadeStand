@@ -42,6 +42,7 @@ namespace LemonadeStand
                     Console.ReadLine();
                     inventory.RemoveMoney(moneyToRemove, inventory );
                     inventory.lemons = Convert.ToInt32(inventory.lemons + buyLemons );
+                    inventory.CalculateLoss(moneyToRemove);
                     break;
                 case "no":
                     break;
@@ -69,6 +70,7 @@ namespace LemonadeStand
                     Console.ReadLine();
                     inventory.RemoveMoney(moneyToRemove, inventory);
                     inventory.sugar = Convert.ToInt32(inventory.sugar + buySugar);
+                    inventory.CalculateLoss(moneyToRemove);
                     break;
                 case "no":
                     break;
@@ -96,6 +98,7 @@ namespace LemonadeStand
                     Console.ReadLine();
                     inventory.RemoveMoney(moneyToRemove, inventory);
                     inventory.ice = Convert.ToInt32(inventory.ice + buyIce);
+                    inventory.CalculateLoss(moneyToRemove);
                     break;
                 case "no":
                     break;
@@ -122,6 +125,7 @@ namespace LemonadeStand
                     Console.ReadLine();
                     inventory.RemoveMoney(moneyToRemove, inventory);
                     inventory.cups = Convert.ToInt32(inventory.cups + buyCups);
+                    inventory.CalculateLoss(moneyToRemove);
                     break;
                 case "no":
                     break;

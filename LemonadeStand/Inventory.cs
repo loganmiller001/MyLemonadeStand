@@ -15,7 +15,9 @@ namespace LemonadeStand
         public double currentCash;
         public double moneyToAdd;
         public double moneyToRemove;
-
+        public double losses;
+        public double gains;
+        public double currentProfitLoss;
 
          public Inventory()
         {
@@ -27,6 +29,7 @@ namespace LemonadeStand
         {
 
             Console.WriteLine($"Inventory: {lemons} lemons, {sugar} sugar, {ice} ice, {cups} cups.");
+            Console.ReadLine();
            
 
         }
@@ -53,6 +56,26 @@ namespace LemonadeStand
         {
             
             Console.WriteLine($"Your current cash is: {inventory.currentCash}");
+            Console.ReadLine();
+        }
+
+        public double CalculateLoss(double moneyToRemove)
+        {
+            losses = losses + moneyToRemove;
+            return losses;
+          
+        }
+
+        public double CalculateProfit(double moneyToAdd)
+        {
+            gains = gains + moneyToAdd;
+            return gains;
+        }
+
+        public void RunningProfit(Inventory inventory)
+        {
+            currentProfitLoss = gains - losses;
+            Console.WriteLine($"Your current profit margin is: {inventory.currentProfitLoss}");
         }
     }
 }
