@@ -12,16 +12,14 @@ namespace LemonadeStand
         public int sugar;
         public int ice;
         public int cups;
-        public int usedLemons;
-        public int usedSugar;
-        public int usedIce;
-        public int usedCups;
         public double currentCash;
         public double moneyToAdd;
         public double moneyToRemove;
         public double losses;
         public double gains;
         public double currentProfitLoss;
+        public int lostCups;
+        Recipe recipe;
 
          public Inventory()
         {
@@ -37,67 +35,21 @@ namespace LemonadeStand
            
 
         }
+ 
 
-        public void ChangeRecipe()
+        public void RemoveItems(int usedLemons, int usedSugar, int usedIce)
         {
-            Console.WriteLine("Enter how much of each item you'd like to add to your recipe.");
-            string userInput = Console.ReadLine();
-            switch (userInput)
-            {
-                case "yes":
-                    SetRecipe(lemons, sugar, ice);
-                    break;
-                case "no":
-                    break;
-                default:
-                    break;
-            }
-
+            recipe = new Recipe();
+            int lostLemons = lemons - recipe.usedLemons;
+            int lostSugar = sugar - recipe.usedSugar;
+            int lostIce = ice - recipe.usedIce;
         }
 
-        public void SetRecipe(int lemons, int sugar, int ice)
+        public void RemoveCups(Day day)
         {
-            Console.WriteLine("Enter your choice of ingredients you wish to add. Type leave to exit the recipe maker.");
-            string userInput = Console.ReadLine().ToLower();
-            switch (userInput)
-            {
-                case "lemons":
-                    Console.WriteLine("How many lemons do you wish to add?");
-                    int addLemons = Convert.ToInt32(Console.ReadLine());
-                    int lostLemons = lemons - addLemons;
-                    Console.WriteLine($"You have added {addLemons} lemons.");
-                    SetRecipe(lemons, sugar, ice);
-                    break;
-                case "sugar":
-                    Console.WriteLine("How much sugar do you wish to add?");
-                    int addSugar = Convert.ToInt32(Console.ReadLine());
-                    int lostSugar = sugar - addSugar;
-                    Console.WriteLine($"You have added {addSugar} cups of sugar.");
-                    SetRecipe(lemons, sugar, ice);
-                    break;
-                case "ice":
-                    Console.WriteLine("How many cubes of ice do you wish to add?");
-                    int addIce = Convert.ToInt32(Console.ReadLine());
-                    int lostIce = ice - addIce;
-                    Console.WriteLine($"You have added {addIce} cubes of ice.");
-                    SetRecipe(lemons, sugar, ice);
-                    break;
-                case "leave":
-                    break;
-                default:
-                    Console.WriteLine("Wrong input, please try again.");
-                    SetRecipe(lemons, sugar, ice);
-                    break;
-            }
+            int lostCups = cups - day.lostCups;
         }
 
-        public void RemoveItems(int usedLemons, int usedSugar, int usedIce, int usedCups)
-        {
-            int lostLemons = lemons - usedLemons;
-            int lostSugar = sugar - usedSugar;
-            int lostIce = ice - usedIce;
-            int lostCups = cups - usedCups;
-        }
         public double SetMoney()
         {
             return currentCash = 20.00;

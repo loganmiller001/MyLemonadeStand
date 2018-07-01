@@ -10,9 +10,9 @@ namespace LemonadeStand
     {
         public List<Customer> customers;
         public Weather weather;
-        public Recipe recipe;
         public double price;
         public int numberOfCustomers;
+        public int lostCups;
 
         public Day(Random rnd)
         {
@@ -57,6 +57,14 @@ namespace LemonadeStand
             Console.WriteLine($"You have had {numberOfCustomers} customers buy lemonade for ${moneyToAdd}");
             inventory.AddMoney(moneyToAdd, inventory);
             inventory.CalculateProfit(moneyToAdd);
+        }
+
+        public void CupsLost(Inventory inventory)
+        {
+            while (inventory.cups > 0)
+            {
+                lostCups = inventory.cups - numberOfCustomers;
+            }
         }
     }
 }

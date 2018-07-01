@@ -16,6 +16,7 @@ namespace LemonadeStand
         public Store store;
         public int AWeekLong;
         public Weather weather;
+        public Recipe recipe;
 
         public void RunGame()
         {
@@ -53,6 +54,7 @@ namespace LemonadeStand
             player = new Player();
             store = new Store();
             weather = new Weather();
+            recipe = new Recipe();
             PlayerInfo(player);
             int AWeekLong = 7;
             for (AWeekLong = 0; AWeekLong < 7; AWeekLong++)
@@ -60,12 +62,14 @@ namespace LemonadeStand
                 WeatherDisplay();
                 PlayerInventory(inventory);
                 BuyItems(store, inventory);
-                CreateRecipe(inventory);
+                CreateRecipe(recipe);
                 day.SetPrice();
                 Console.Clear();
                 Console.WriteLine("Ready, press enter to begin the day.");
                 Console.ReadLine();
                 day.GenerateCustomers(random, weather);
+                day.CupsLost(inventory);
+                inventory.RemoveCups(day);
                 day.CalculateRevenue(inventory, day);
                 GetProfit(inventory);
             } 
@@ -115,12 +119,12 @@ namespace LemonadeStand
             inventory.CalculateLoss(inventory.moneyToRemove);
             inventory.RunningProfit(inventory);
         }
-        public void CreateRecipe(Inventory inventory)
+        public void CreateRecipe(Recipe recipe)
         {
-            inventory = new Inventory();
-            inventory.ChangeRecipe();
-            inventory.SetRecipe(inventory.lemons, inventory.sugar, inventory.ice);
-            inventory.RemoveItems(inventory.usedLemons, inventory.usedSugar, inventory.usedIce, inventory.usedCups);
+            recipe = new Recipe();
+            recipe.ChangeRecipe();
+            recipe.SetRecipe(inventory.lemons, inventory.sugar, inventory.ice);
+            inventory.RemoveItems(recipe.usedLemons, recipe.usedSugar, recipe.usedIce);
             inventory.DisplayInventory();
         }
     }
