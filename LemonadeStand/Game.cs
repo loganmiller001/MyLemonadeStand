@@ -72,8 +72,8 @@ namespace LemonadeStand
                 inventory.RemoveCups(day);
                 day.CalculateRevenue(inventory, day);
                 GetProfit(inventory);
-            } 
-
+            }
+            EndGame();
         }
 
         public void DayMaker(Weather weather)
@@ -126,6 +126,23 @@ namespace LemonadeStand
             recipe.SetRecipe(inventory.lemons, inventory.sugar, inventory.ice);
             inventory.RemoveItems(recipe.usedLemons, recipe.usedSugar, recipe.usedIce);
             inventory.DisplayInventory();
+        }
+
+        public void EndGame()
+        {
+            Console.WriteLine("The game is now over, would you like to play again?");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "yes":
+                    RunGame();
+                    break;
+                case "no":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
