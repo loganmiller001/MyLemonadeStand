@@ -59,13 +59,6 @@ namespace LemonadeStand
             inventory.CalculateProfit(moneyToAdd);
         }
 
-        public void CupsLost(Inventory inventory)
-        {
-            while (inventory.cups > 0)
-            {
-                lostCups = inventory.cups - numberOfCustomers;
-            }
-        }
     }
 }
 

@@ -68,7 +68,6 @@ namespace LemonadeStand
                 Console.WriteLine("Ready, press enter to begin the day.");
                 Console.ReadLine();
                 day.GenerateCustomers(random, weather);
-                day.CupsLost(inventory);
                 inventory.RemoveCups(day);
                 day.CalculateRevenue(inventory, day);
                 GetProfit(inventory);
