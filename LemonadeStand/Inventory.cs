@@ -19,6 +19,9 @@ namespace LemonadeStand
         public double gains;
         public double currentProfitLoss;
         public int lostCups;
+        public int lostLemons;
+        public int lostIce;
+        public int lostSugar;
         Recipe recipe;
 
          public Inventory()
@@ -37,12 +40,11 @@ namespace LemonadeStand
         }
  
 
-        public void RemoveItems(int usedLemons, int usedSugar, int usedIce)
+        public void RemoveItems(Recipe recipe)
         {
-            recipe = new Recipe();
-            int lostLemons = lemons - recipe.usedLemons;
-            int lostSugar = sugar - recipe.usedSugar;
-            int lostIce = ice - recipe.usedIce;
+            int lostLemons = lemons - recipe.addLemons;
+            int lostSugar = sugar - recipe.addSugar;
+            int lostIce = ice - recipe.addIce;
         }
 
         public void RemoveCups(Day day)

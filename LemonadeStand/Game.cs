@@ -122,8 +122,8 @@ namespace LemonadeStand
         {
             recipe = new Recipe();
             recipe.ChangeRecipe();
-            recipe.SetRecipe(inventory.lemons, inventory.sugar, inventory.ice);
-            inventory.RemoveItems(recipe.usedLemons, recipe.usedSugar, recipe.usedIce);
+            recipe.SetRecipe(inventory);
+            inventory.RemoveItems(recipe);
             inventory.DisplayInventory();
         }
 
